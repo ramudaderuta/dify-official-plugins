@@ -1,0 +1,74 @@
+{
+  "$schema": "https://raw.githubusercontent.com/code-yeongyu/oh-my-opencode/master/assets/oh-my-opencode.schema.json",
+  "agents": {
+    "sisyphus": {
+      "model": "emtf/gpt-5.2-codex",
+      "variant": "medium"
+    },
+    "hephaestus": {
+      "model": "emtf/gpt-5.2-codex",
+      "variant": "medium"
+    },
+    "oracle": {
+      "model": "emtf/gpt-5.2",
+      "variant": "high"
+    },
+    "librarian": {
+      "model": "emtf/gpt-5.1-codex-mini",
+      "variant": "medium"
+    },
+    "explore": {
+      "model": "emtf/gpt-5.1-codex-mini",
+      "variant": "medium"
+    },
+    "multimodal-looker": {
+      "model": "cli/gemini-3-flash-preview",
+      "variant": "low"
+    },
+    "prometheus": {
+      "model": "cli/gemini-claude-opus-4-5-thinking"
+    },
+    "metis": {
+      "model": "emtf/gpt-5.2-codex",
+      "variant": "high"
+    },
+    "momus": {
+      "model": "emtf/gpt-5.2",
+      "variant": "medium"
+    },
+    "atlas": {
+      "model": "cli/gemini-claude-sonnet-4-5-thinking"
+    }
+  },
+  "categories": {
+    "visual-engineering": {
+      "model": "cli/gemini-3-pro-preview"
+    },
+    "ultrabrain": {
+      "model": "emtf/gpt-5.2-codex",
+      "variant": "high"
+    },
+    "deep": {
+      "model": "emtf/gpt-5.2-codex",
+      "variant": "medium"
+    },
+    "artistry": {
+      "model": "cli/gemini-claude-opus-4-5-thinking"
+    },
+    "quick": {
+      "model": "emtf/gpt-5.2-codex",
+      "variant": "low"
+    },
+    "unspecified-low": {
+      "model": "emtf/gpt-5.2-codex",
+      "variant": "low"
+    },
+    "unspecified-high": {
+      "model": "emtf/gpt-5.2-codex",
+      "variant": "medium"
+    },
+    "writing": {
+      "model": "cli/gemini-claude-sonnet-4-5-thinking"
+    }
+  }
+}

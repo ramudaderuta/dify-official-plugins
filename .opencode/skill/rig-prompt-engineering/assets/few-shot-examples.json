@@ -1,0 +1,114 @@
+{
+  "sentiment_analysis": [
+    {
+      "input": "This product exceeded my expectations! The quality is outstanding.",
+      "output": {"label": "Positive", "confidence": 0.95}
+    },
+    {
+      "input": "Terrible experience. The item arrived damaged and support was unhelpful.",
+      "output": {"label": "Negative", "confidence": 0.93}
+    },
+    {
+      "input": "The product works as described. Nothing special, but does the job.",
+      "output": {"label": "Neutral", "confidence": 0.71}
+    }
+  ],
+  "entity_extraction": [
+    {
+      "input": "Apple CEO Tim Cook announced the new iPhone at an event in Cupertino on September 12th.",
+      "output": {
+        "persons": ["Tim Cook"],
+        "organizations": ["Apple"],
+        "products": ["iPhone"],
+        "locations": ["Cupertino"],
+        "dates": ["September 12th"]
+      }
+    },
+    {
+      "input": "Microsoft acquired GitHub for $7.5 billion in 2018.",
+      "output": {
+        "persons": [],
+        "organizations": ["Microsoft", "GitHub"],
+        "products": [],
+        "locations": [],
+        "dates": ["2018"],
+        "monetary_values": ["$7.5 billion"]
+      }
+    }
+  ],
+  "code_generation_rust": [
+    {
+      "input": "Write a Rust function to check if a string is a palindrome",
+      "output": {
+        "code": "fn is_palindrome(s: &str) -> bool { let cleaned: String = s.chars().filter(|c| !c.is_whitespace()).flat_map(|c| c.to_lowercase()).collect(); cleaned.chars().eq(cleaned.chars().rev()) }"
+      }
+    }
+  ],
+  "text_classification": [
+    {
+      "input": "How do I reset my password?",
+      "output": {"intent": "account_management", "confidence": 0.82}
+    },
+    {
+      "input": "My order hasn't arrived yet. Where is it?",
+      "output": {"intent": "shipping_inquiry", "confidence": 0.79}
+    },
+    {
+      "input": "I'd like to cancel my subscription.",
+      "output": {"intent": "subscription_cancellation", "confidence": 0.77}
+    },
+    {
+      "input": "The app keeps crashing when I try to log in.",
+      "output": {"intent": "technical_support", "confidence": 0.74}
+    }
+  ],
+  "data_transformation": [
+    {
+      "input": "John Smith, john@email.com, (555) 123-4567",
+      "output": {"name": "John Smith", "email": "john@email.com", "phone": "(555) 123-4567"}
+    },
+    {
+      "input": "Jane Doe | jane.doe@company.com | +1-555-987-6543",
+      "output": {"name": "Jane Doe", "email": "jane.doe@company.com", "phone": "+1-555-987-6543"}
+    }
+  ],
+  "question_answering": [
+    {
+      "context": "The Eiffel Tower is a wrought-iron lattice tower in Paris, France. It was constructed from 1887 to 1889 and stands 324 meters (1,063 ft) tall.",
+      "question": "When was the Eiffel Tower built?",
+      "answer": {"answer": "The Eiffel Tower was constructed from 1887 to 1889.", "grounded": true, "citations": ["eiffel.txt p1:"]}
+    },
+    {
+      "context": "Rust 1.75 stabilized async fn in traits behind feature flags and added performance improvements.",
+      "question": "What changed in Rust 1.75?",
+      "answer": {"answer": "Rust 1.75 improved async fn in traits (feature-gated) and performance.", "grounded": true, "citations": ["release-notes.md p2:"]}
+    }
+  ],
+  "summarization": [
+    {
+      "input": "Climate change refers to long-term shifts in global temperatures and weather patterns. While climate change is natural, human activities have been the main driver since the 1800s, primarily due to the burning of fossil fuels like coal, oil and gas which produces heat-trapping greenhouse gases. The consequences include rising sea levels, more extreme weather events, and threats to biodiversity.",
+      "output": {"summary": "Climate change is long-term shifts in temperature and weather driven largely by human fossil fuel use since the 1800s, causing sea-level rise, extreme weather, and biodiversity threats."}
+    }
+  ],
+  "sql_generation": [
+    {
+      "schema": "users (id, name, email, created_at)\norders (id, user_id, total, order_date)",
+      "request": "Find all users who have placed orders totaling more than $1000",
+      "output": {"sql": "SELECT u.id, u.name, u.email, SUM(o.total) AS total_spent FROM users u JOIN orders o ON u.id = o.user_id GROUP BY u.id, u.name, u.email HAVING SUM(o.total) > 1000;"}
+    }
+  ],
+  "tool_use": [
+    {
+      "input": "Compute totals from the spreadsheet.",
+      "output": {"status": "pending", "evidence": "costs.xlsx p2: totals", "used_tool": true}
+    },
+    {
+      "input": "Fetch summary from report.pdf, then approve if it matches requirements.",
+      "output": {"status": "pending", "evidence": "report.pdf p3: summary", "used_tool": true}
+    },
+    {
+      "input": "Tool failed to load data, what now?",
+      "output": {"status": "pending", "evidence": "insufficient context", "used_tool": true, "reason": "tool failed"}
+    }
+  ]
+}
